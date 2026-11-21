@@ -71,3 +71,6 @@ add_custom_command(TARGET FFSupervisor POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
           "${CMAKE_SOURCE_DIR}/configs/RobRunAIO.ini"
           "$<TARGET_FILE_DIR:FFSupervisor>/RobRunAIO.ini")
+
+# Clean-room entry + static dump artifacts (analysis/DUMP.md).
+include("${CMAKE_SOURCE_DIR}/robrun/CMakeLists.txt")
