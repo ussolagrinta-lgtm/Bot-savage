@@ -1,4 +1,3 @@
-/** @type {import("./types").Product[]} */
 const PRODUCTS = [
   {
     id: "usermode_source",
