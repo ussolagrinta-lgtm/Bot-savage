@@ -1,0 +1,11 @@
+build/
+.vs/
+.vscode/
+*.user
+*.suo
+*.obj
+*.pdb
+*.sys
+*.cer
+_extracted/
+joker-meccanico-bot-advanced.zip

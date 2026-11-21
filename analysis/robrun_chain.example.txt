@@ -1,0 +1,3 @@
+# Parsed by RobRunAIO --chain / selftest (format from binary strings)
+world = GameAssembly.dll+0x81B7148
+camera = world+0x38 +0x18

@@ -1,0 +1,38 @@
+;
+; Sample INF — adjust catalog/signing for your certificate.
+;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+CatalogFile = RobRunMem.cat
+DriverVer   = 11/21/2026,1.0.0.0
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%RobRunMem.DeviceDesc% = RobRunMem_Install, Root\RobRunMem
+
+[RobRunMem_Install.NT]
+CopyFiles = RobRunMem_CopyFiles
+
+[RobRunMem_CopyFiles]
+RobRunMem.sys
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+RobRunMem.sys = 1,,
+
+[Strings]
+ManufacturerName = "RobRunTool"
+RobRunMem.DeviceDesc = "Rob Run memory driver"
+DiskName = "RobRunMem Installation Disk"

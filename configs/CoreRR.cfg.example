@@ -1,0 +1,24 @@
+# CoreRR settings — key names match RobRunAIO WebView menu (data-key / set: bridge).
+
+enabled=1
+show_box=1
+show_skeleton=1
+show_name=1
+show_distance=1
+show_weapon=1
+show_head=1
+show_clan=1
+show_police=1
+
+aa_on=0
+aa_show_fov=1
+aa_key=18
+aa_fov_px=150
+aa_smooth=5
+aa_dist=0
+aa_aim_cal=1000
+
+radar_on=1
+radar_range=150
+max_distance=30000
+skel_distance=15000
