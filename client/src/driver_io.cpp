@@ -10,11 +10,14 @@ bool DriverIo::Open() {
     if (device_ != INVALID_HANDLE_VALUE)
         return true;
 
-    device_ = CreateFileW(
-        ROB_RUN_DEVICE_NAME, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, nullptr,
-        OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
-
-    return device_ != INVALID_HANDLE_VALUE;
+    const wchar_t* devices[] = {WM_PORT_DEVICE_NAME, ROB_RUN_DEVICE_NAME};
+    for (const wchar_t* name : devices) {
+        device_ = CreateFileW(name, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, nullptr,
+                              OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+        if (device_ != INVALID_HANDLE_VALUE)
+            return true;
+    }
+    return false;
 }
 
 void DriverIo::Close() {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "game_state.hpp"
+#include "world_chain.hpp"
 #include "math_util.hpp"
 
 #include <Windows.h>
@@ -39,6 +40,9 @@ struct EspDrawCommand {
 
 void BuildEspCommands(const GameStateReader& state, const MenuConfig& cfg, const Viewport& vp,
                       std::vector<EspDrawCommand>& out);
+
+void BuildEspFromWorldPlayers(const std::vector<BattlePlayer>& players, const MenuConfig& cfg, const Viewport& vp,
+                              std::vector<EspDrawCommand>& out);
 
 bool RunAimbot(const GameStateReader& state, const MenuConfig& cfg, const Viewport& vp, HWND gameHwnd);
 

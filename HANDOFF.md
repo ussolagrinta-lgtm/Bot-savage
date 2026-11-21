@@ -1,8 +1,8 @@
-# HANDOFF — ROB RUN mod menu scaffold
+# HANDOFF — ROB RUN / RobRunAIO recreation
 
 ## Request
 
-Mod menu for ROB RUN: kernel driver memory I/O, ESP, aimbot, triggerbot, external DXGI overlay.
+Recreate source from user-uploaded `RobRunAIO.exe` + `FFLoader.exe` (public build), better structured than first scaffold.
 
 ## Measured in repo
 
@@ -15,12 +15,18 @@ Mod menu for ROB RUN: kernel driver memory I/O, ESP, aimbot, triggerbot, externa
 - User loads a signed/test-signed `RobRunMem.sys` themselves.
 - Aim/trigger via usermode mouse input.
 
-## Still UNKNOWN (blocks in-game ESP/aim)
+## From RobRunAIO.exe strings (user upload)
 
-1. Confirm static RVAs in `game_config.hpp` on live `GameAssembly.dll` (Il2CppDumper).
-2. `WorldEntitiesModel` list layout + count + element stride.
-3. `BattleCameraModel` view/proj matrix field offsets + local team id.
-4. Mouse sensitivity calibration for aimbot.
+- Device: `\\.\WmPort` (not included — map your own `kernel-mode.sys`).
+- World RVA `0x81B7148`, offsets `0x38` / `0x18`, transform `0x58` / `0x60`.
+- Full WebView menu HTML extracted to `client/resources/menu.html`.
+- `CoreRR.cfg` keys mirrored in `core_rr_config.hpp`.
+
+## Still UNKNOWN (blocks live ESP/aim)
+
+1. Il2CPP dictionary/list `prim`/`dict` offsets for `_battleCharacters` enumeration.
+2. `BattleCameraModel` matrix fields + yaw calibration (`aa_aim_cal`).
+3. Whether your driver is `WmPort` or `RobRunMem.sys`.
 
 ## Files
 

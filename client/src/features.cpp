@@ -16,6 +16,20 @@ static void SendRelativeMouse(long dx, long dy) {
     SendInput(1, &input, sizeof(INPUT));
 }
 
+void BuildEspFromWorldPlayers(const std::vector<BattlePlayer>& players, const MenuConfig& cfg, const Viewport& vp,
+                              std::vector<EspDrawCommand>& out) {
+    out.clear();
+    if (!cfg.espEnabled)
+        return;
+    for (const auto& p : players) {
+        if (!p.valid)
+            continue;
+        EspDrawCommand cmd{};
+        cmd.distanceM = 0.f;
+        out.push_back(cmd);
+    }
+}
+
 void BuildEspCommands(const GameStateReader& state, const MenuConfig& cfg, const Viewport& vp,
                       std::vector<EspDrawCommand>& out) {
     out.clear();

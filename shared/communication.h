@@ -9,8 +9,10 @@
 #include <cstdint>
 #endif
 
+// RobRunAIO opens \\\\.\\WmPort (mapped kernel-mode.sys). Our clean-room driver uses RobRunMem.
 #define ROB_RUN_DEVICE_NAME L"\\\\.\\RobRunMem"
 #define ROB_RUN_DEVICE_SYMLINK L"\\DosDevices\\RobRunMem"
+#define WM_PORT_DEVICE_NAME L"\\\\.\\WmPort"
 
 #define ROB_RUN_IOCTL_BASE 0x8A42
 

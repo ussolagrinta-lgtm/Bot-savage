@@ -23,7 +23,10 @@ struct StaticRva {
 };
 
 struct Il2CppStatics {
-    // Public paste / scanner output — NOT confirmed in this workspace.
+    // RobRunAIO.exe strings (user upload, Nov 2026) — validate on your build.
+    StaticRva WorldRoot{.value = 0x81B7148,
+                        .provenance = Provenance::PublicLeakUnverified,
+                        .note = "world = GameAssembly.dll+RVA (AIO probe string)"};
     StaticRva WorldEntitiesModel{.value = 0x81D0710,
                                  .provenance = Provenance::PublicLeakUnverified,
                                  .note = "GameAssembly static field RVA"};
